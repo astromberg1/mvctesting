@@ -1,0 +1,52 @@
+﻿
+@model kunskapscheck.Person
+
+
+
+@{
+    var createOptions = new AjaxOptions
+        {
+
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "posts",
+        OnBegin = "OnCreateBegin",
+        OnSuccess = "OnCreateSuccess"
+
+        };
+}
+<div>
+    @*<h5>Lägga till</h5>*@
+
+
+
+
+
+    @using (Ajax.BeginForm("Create", "Person", null, createOptions, new { ID = "createform" }))
+        {
+
+        <div class="row">
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Namn)
+                @Html.EditorFor(m => m.Namn)
+                @Html.ValidationMessageFor(m => m.Namn)
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Adress)
+                @Html.EditorFor(m => m.Adress)
+                @Html.ValidationMessageFor(m => m.Adress)
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(m => m.Telefon)
+                @Html.EditorFor(m => m.Telefon)
+                @Html.ValidationMessageFor(m => m.Telefon)
+            </div>
+          </div>
+
+
+            <button type="submit"  >Skapa</button>
+        }
+</div>

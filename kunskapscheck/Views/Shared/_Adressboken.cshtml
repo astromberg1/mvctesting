@@ -1,0 +1,85 @@
+﻿@model List<Person>
+
+
+
+    @*function btnsok() {
+
+        //var somrade = $("#listbox :selected").text();
+        var element = document.getElementById("listbox");
+        var output = document.getElementById("myHiddenInput");
+        var selectedValue =  element.options[element.selectedIndex].value;
+        $("#myHiddeninput").val(selectedValue);
+
+
+
+        $("#result").val(@Html.Partial("_rad", Model[0]))
+       }*@
+
+
+<div>
+
+    <select name="listbox" id="listbox">
+        @foreach (var item in Model)
+            {
+         
+
+
+            <option value="@item.id">
+                @item.Namn
+            </option>
+            }
+    </select>
+</div>
+
+
+
+
+
+
+<div id="result">
+
+
+</div>
+
+
+
+<div id="result1">
+
+
+</div>
+
+@*@Html.Partial("_rad",  pers)*@
+                             
+
+
+
+    @*@foreach (var person in Model)
+    {
+
+    @Html.Partial("_rad", person)
+
+    }*@
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#result").text('');
+        $("#listbox").change(function () {
+            var categoryId = $("#listbox").val();
+
+            if (categoryId != null)
+                $("#result").load('@Url.Action("Getperson", "Person")/' + categoryId);
+       
+
+        });
+        
+        if ($("#result").text().length==0)
+        {
+            $("#result").load('@Url.Action("Getfirstperson", "Person")');
+
+        }
+
+        });
+
+
+</script>

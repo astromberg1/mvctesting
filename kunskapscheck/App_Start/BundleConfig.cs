@@ -25,6 +25,8 @@ namespace kunskapscheck
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                        "~/Content/alertify/alertify.core.css",
+                      "~/Content/alertify/alertify.bootstrap.css",
                       "~/Content/site.css"));
             }
         }

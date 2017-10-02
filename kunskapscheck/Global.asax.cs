@@ -16,6 +16,14 @@ namespace kunskapscheck
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+            ////Remove all view engine
+            //ViewEngines.Engines.Clear();
+
+            ////Add Razor view Engine
+            //ViewEngines.Engines.Add(new RazorViewEngine());
+
             }
         }
     }

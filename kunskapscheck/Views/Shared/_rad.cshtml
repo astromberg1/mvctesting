@@ -1,0 +1,26 @@
+﻿@model Person
+
+@if (Model != null)
+    {
+<div class="col-md-10">
+    <p>
+        @Html.LabelFor(m => m.Namn)
+        @Html.DisplayFor(m => m.Namn)
+
+        @Html.LabelFor(m => m.Adress)
+        @Html.DisplayFor(m => m.Adress)
+
+        @Html.LabelFor(m => m.Telefon)
+        @Html.DisplayFor(m => m.Telefon)
+
+        @Html.LabelFor(m => m.Uppdaterad)
+        @Html.DisplayFor(m => m.Uppdaterad)
+
+
+
+
+        @Html.ActionLink("Delete", "Delete", "Person", new { Value = Model.id }, new { @class = "deletebtn", value = Model.id })
+        @Ajax.ActionLink("Edit", "Edit", "Person", new { id = Model.id }, new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "crudfields", OnSuccess = "onWindowChange" })
+    </p>
+</div>
+    }
